@@ -16,7 +16,6 @@ Thumbs.db
 
 # JMeter plugin temp files
 *.jtl
-*.csv
 *.bak
 
 # Reports

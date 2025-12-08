@@ -1,0 +1,16 @@
+testCaseId,name,job,email,password,expectedStatusCode,remarks
+TC01,,,,,200,List users
+TC02,,,,,200,Single user
+TC03,,,,,404,Single user not found
+TC04,,,,,200,List resource
+TC05,,,,,200,Single resource
+TC06,,,,,404,Single resource not found
+TC07,morpheus,leader,,,201,Create user
+TC08,morpheus,zion resident,,,200,Update user (PUT)
+TC09,morpheus,zion resident,,,200,Update user (PATCH)
+TC10,,,,,204,Delete user
+TC11,,,eve.holt@reqres.in,pistol,200,Register successful
+TC12,,,sydney@fife,,400,Register unsuccessful
+TC13,,,eve.holt@reqres.in,cityslicka,200,Login successful
+TC14,,,peter@klaven,,404,Login unsuccessful
+TC15,,,,,200,Delayed response
