@@ -29,20 +29,23 @@ cd reqres-jmeter-project
 ### Running the tests
 ```bash
 mvn clean verify
+mvn clean verify -Djmx.includes=reqres.jmx
+mvn clean verify -Djmx.includes=data_driven.jmx
 ```
 
 The project supports data-driven testing using a CSV file located at:
 ```bash
-src/test/jmeter/data/reqres_test_cases_detailed.csv
+src/test/resources/reqres_test_cases_detailed.csv
 ```
 
 ### 📊 Output Files
 After mvn clean verify, outputs are under target/jmeter/:
 ```
 target/jmeter/
-├─ testFiles/          # jmx file
-├─ results/            # csv output 
-├─ logs/               # Execution log
+├─ testFiles/          # JMX test plan(s)
+├─ results/            # Raw CSV/JSON results
+├─ logs/               # JMeter run logs
+├─ reports/            # HTML reports 
 
 ```
 

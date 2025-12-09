@@ -3,13 +3,20 @@
   <groupId>com.reqres</groupId>
   <artifactId>reqres-jmeter-project</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  
+  <properties>
+    <java.version>11</java.version>
+    <jmeter.maven.plugin.version>3.6.0</jmeter.maven.plugin.version>
+    <selenium.version>4.18.1</selenium.version>
+    <jmx.includes>*.jmx</jmx.includes>
+    <results.dir>${project.build.directory}/jmeter/results</results.dir>
+    <reports.dir>${project.build.directory}/jmeter/reports</reports.dir>
+  </properties>
   <build>
         <plugins>
             <plugin>
                 <groupId>com.lazerycode.jmeter</groupId>
                 <artifactId>jmeter-maven-plugin</artifactId>
-                <version>3.6.0</version>
+                <version>${jmeter.maven.plugin.version}</version>
 
                 <executions>
                     <execution>
@@ -29,10 +36,15 @@
 
                 <configuration>
                     <testFilesIncluded>
-                        <jMeterTestFile>*.jmx</jMeterTestFile>
-                    </testFilesIncluded>         
+                        <jMeterTestFile>${jmx.includes}</jMeterTestFile>
+                    </testFilesIncluded>
+                    
+                    <resultsDirectory>${results.dir}</resultsDirectory>
+                    <reportsDirectory>${reports.dir}</reportsDirectory>
+                    <generateReports>true</generateReports>
+     
          		 <testPlanLibraries>
-         		  <artifact>org.seleniumhq.selenium:selenium-java:4.18.1</artifact>
+         		  <artifact>org.seleniumhq.selenium:selenium-java:${selenium.version}</artifact>
          		  </testPlanLibraries>
                 </configuration>
 			    </plugin>
@@ -51,7 +63,7 @@
                 <configuration>
                     <toolchains>
                         <jdk>
-                            <version>11</version> 
+                            <version>${java.version}</version> 
                         </jdk>
                         </toolchains>
                    </configuration>
@@ -63,7 +75,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.11.0</version>
                 <configuration>
-                    <release>11</release> 
+                    <release>${java.version}</release> 
                 </configuration>
         
             </plugin>
